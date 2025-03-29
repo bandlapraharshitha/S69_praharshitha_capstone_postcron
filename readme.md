@@ -29,6 +29,7 @@ This project will be developed using MERN stack (MongoDB, Express.js, React.js, 
 
 ✅ Covers multiple tech skills – Includes MERN stack, API integrations, OAuth authentication, Cron Jobs, and    data visualization.
 
+
 ✅ Automation Challenge – Handling scheduled posts makes it a great learning experience.
 
 ✅ Showcase-Worthy – Highlights both backend automation & frontend UI skills.
