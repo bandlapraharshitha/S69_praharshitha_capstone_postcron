@@ -146,3 +146,13 @@ Write detailed documentation for API endpoints and database schemas.
 Record screen demo of post scheduling, analytics, and UI.
 
 ✅ Day 40: Submit Project & Presentation
+
+----------------------------------------------------
+
+backend installation:
+npm install express mongoose dotenv bcryptjs jsonwebtoken cors body-parser
+npm install nodemon --save-dev
+
+
+frontend installation:
+npm install axios react-router-dom nodemon
