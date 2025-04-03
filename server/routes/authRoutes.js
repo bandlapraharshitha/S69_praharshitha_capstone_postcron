@@ -58,14 +58,4 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.get("/users", async (req, res) => {
-    try {
-        const users = await User.find({}, "username"); // Only fetch usernames, not passwords
-        res.status(200).json({ success: true, users });
-    } catch (error) {
-        console.error("Fetch Users Error:", error);
-        res.status(500).json({ success: false, message: "Server error" });
-    }
-});
 
-module.exports = router;
