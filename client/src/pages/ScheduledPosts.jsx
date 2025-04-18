@@ -39,6 +39,30 @@ const ScheduledPosts = () => {
     });
   };
 
+  const handleDelete = async (postId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    if (!confirmDelete) return;
+  
+    try {
+      const res = await fetch(`http://localhost:5000/api/scheduled-posts/${postId}`, {
+        method: "DELETE",
+      });
+  
+      const data = await res.json();
+  
+      if (res.ok) {
+        alert("🗑️ Post deleted!");
+        // Refresh the list
+        setPosts((prev) => prev.filter((p) => p._id !== postId));
+      } else {
+        alert("❌ " + data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error.message);
+    }
+  };
+  
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Scheduled Posts</h2>
@@ -62,6 +86,18 @@ const ScheduledPosts = () => {
               <p className="text-sm text-gray-500">
                 <strong>Scheduled at:</strong> {formatDateTime(post.scheduledAt)}
               </p>
+              <button
+                onClick={() => window.location.href = `/edit/${post._id}`}
+                className="mt-2 bg-yellow-500 text-white px-3 py-1 rounded"
+              >
+                Edit
+              </button>
+              <button
+              onClick={() => handleDelete(post._id)}
+              className="mt-2 ml-2 bg-red-500 text-white px-3 py-1 rounded"
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

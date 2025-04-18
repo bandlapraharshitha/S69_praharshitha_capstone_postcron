@@ -59,4 +59,48 @@ router.get("/scheduled-posts", async (req, res) => {
   }
 });
 
+// GET single post by ID
+router.get("/scheduled-posts/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ success: false, message: "Post not found" });
+    res.json({ success: true, post });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Error fetching post" });
+  }
+});
+
+// PUT update post
+router.put("/scheduled-posts/:id", async (req, res) => {
+  try {
+    const { caption, date, time } = req.body;
+    const scheduledAt = new Date(`${date}T${time}`);
+    const updated = await Post.findByIdAndUpdate(
+      req.params.id,
+      { caption, scheduledAt },
+      { new: true }
+    );
+
+    if (!updated) return res.status(404).json({ success: false, message: "Post not found" });
+
+    res.json({ success: true, message: "Post updated", post: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Error updating post" });
+  }
+});
+
+// DELETE a scheduled post
+router.delete("/scheduled-posts/:id", async (req, res) => {
+  try {
+    const deleted = await Post.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ success: false, message: "Post not found" });
+    }
+    res.json({ success: true, message: "Post deleted" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Error deleting post" });
+  }
+});
+
+
 module.exports = router;
