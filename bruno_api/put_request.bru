@@ -1,0 +1,20 @@
+meta {
+  name: put_request
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:5000/api/scheduled-posts/6802a0f61154f18388687693
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "caption": "Kalvium session rescheduled",
+    "date": "2025-04-21",
+    "time": "11:00"
+  }
+  
+}
