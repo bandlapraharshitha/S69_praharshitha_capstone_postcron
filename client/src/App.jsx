@@ -6,6 +6,7 @@ import SchedulePost from "./pages/SchedulePost";
 import ScheduledPosts from "./pages/ScheduledPosts";
 import History from "./pages/History";
 import Analytics from "./pages/Analytics";
+import EditPost from "./pages/EditPost"; 
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/scheduled-posts" element={<ScheduledPosts />} />
         <Route path="/history" element={<History />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/edit/:id" element={<EditPost />} />
       </Routes>
     </Router>
   );
