@@ -75,7 +75,13 @@ const SchedulePost = () => {
           onChange={(e) => setCaption(e.target.value)}
           className="border p-2 w-full"
         />
-        
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+          required
+          className="border p-2 w-full"
+        />
         <input
           type="date"
           value={date}
