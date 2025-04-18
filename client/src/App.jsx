@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
+import Navbar from "./components/Navbar"
+import SchedulePost from "./pages/SchedulePost";
+import ScheduledPosts from "./pages/ScheduledPosts";
+import History from "./pages/History";
+import Analytics from "./pages/Analytics";
 
 const App = () => {
   return (
@@ -9,7 +13,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+      </Routes>
+      <Navbar/>
+      <Routes>
+        <Route path="/home" element={<SchedulePost />} />
+        <Route path="/scheduled-posts" element={<ScheduledPosts />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/analytics" element={<Analytics />} />
       </Routes>
     </Router>
   );
