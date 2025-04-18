@@ -34,7 +34,7 @@ router.post("/schedule", upload.single("image"), async (req, res) => {
       caption,
       imagePath,
       scheduledAt,
-      status: "scheduled", // 👈 This is the key fix
+      status: "scheduled"
     });
 
     await newPost.save();
