@@ -1,0 +1,26 @@
+meta {
+  name: post_request
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5000/api/schedule
+  body: multipartForm
+  auth: inherit
+}
+
+body:json {
+  {
+    
+  }
+}
+
+body:multipart-form {
+  caption: "kalvians life" @contentType(text)
+  time: 16:00 @contentType(text)
+  image: @file(C:\Users\praha\OneDrive\Pictures\technical\python\Screenshot 2024-12-06 143703.png) @contentType(file)
+  username: "praharshitha" @contentType(text)
+  password: helloooo @contentType(text)
+  date: 2025-04-21 @contentType(text)
+}
